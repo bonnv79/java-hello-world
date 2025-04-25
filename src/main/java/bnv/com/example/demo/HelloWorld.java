@@ -2,15 +2,18 @@ package bnv.com.example.demo;
 
 import java.util.Arrays;
 
-public class HelloWorld {
-    int myNum = 5;               // Integer (whole number)
-    float myFloatNum = 5.99f;    // Floating point number
-    char myLetter = 'D';         // Character
-    boolean myBool = true;       // Boolean
-    String myText = "Hello";     // String
+public class HelloWorld {// String
 
     public static void main(String[] args) {
         System.out.println("hello world");
+
+        System.out.println("===================================");
+        System.out.println("demo types");
+        System.out.println(TypesClass.myNum);
+        System.out.println(TypesClass.myFloatNum);
+        System.out.println(TypesClass.myLetter);
+        System.out.println(TypesClass.myBool);
+        System.out.println(TypesClass.myText);
 
         System.out.println("===================================");
         System.out.println("demo if");
@@ -44,6 +47,10 @@ public class HelloWorld {
         System.out.println("===================================");
         System.out.println("demo Multi-Dimensional Array");
         demoMultiDimensionalArray();
+
+        System.out.println("===================================");
+        System.out.println("demo object");
+        demoObject();
     }
 
     public static void checkNumber(int x) {
@@ -132,21 +139,38 @@ public class HelloWorld {
     }
 
     public static void demoMultiDimensionalArray() {
-        int[][] myNumbers = { {1, 2, 3, 4}, {5, 6, 7} };
+        int[][] myNumbers = {{1, 2, 3, 4}, {5, 6, 7}};
 
         System.out.println("Loop Through a Multi-Dimensional Array");
         for (int i = 0; i < myNumbers.length; ++i) {
             for (int j = 0; j < myNumbers[i].length; ++j) {
-                System.out.println("[" + i +  "]" + "[" + j +  "]" + " : " + myNumbers[i][j]);
+                System.out.println("[" + i + "]" + "[" + j + "]" + " : " + myNumbers[i][j]);
             }
         }
 
         System.out.println("Loop Through a Multi-Dimensional Array (for-each)");
         for (int[] row : myNumbers) {
             for (int i : row) {
-                System.out.println("[" + i +  "]" + " : " + i);
+                System.out.println("[" + i + "]" + " : " + i);
             }
         }
     }
+
+    public static void demoObject() {
+        MainObject mObj = new MainObject();
+        System.out.println("Main object: " + mObj.x);
+
+        SecondObject a = new SecondObject();
+        SecondObject a1 = new SecondObject(2);
+        SecondObject a2 = new SecondObject(3, 4);
+        SecondObject[] array = {a, a1, a2};
+
+        for (SecondObject i : array) {
+//            System.out.println("x:y: " + i.getX() + ":" + i.getY());
+            i.showXY();
+        }
+    }
+
+
 }
 
