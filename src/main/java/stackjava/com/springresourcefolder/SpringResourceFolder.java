@@ -9,12 +9,12 @@ import java.nio.file.Files;
 public class SpringResourceFolder {
     public static void main(String[] args) throws IOException {
         readFileUsingClassLoader();
-        System.out.println("-------------------------------------");
+        System.out.println("=====================================================================");
         readFileUsingResourceUtils();
     }
 
     public static void readFileUsingClassLoader() throws IOException {
-        System.out.println("Read file from resource folder via ClassLoader");
+        System.out.println("- Read file from resource folder via ClassLoader");
         String fileName = "files/demo.txt";
         // ClassLoader classLoader = new ReadFile().getClass().getClassLoader();
         ClassLoader classLoader = ClassLoader.getSystemClassLoader();
@@ -26,7 +26,7 @@ public class SpringResourceFolder {
     }
 
     public static void readFileUsingResourceUtils() throws IOException {
-        System.out.println("Read file from resource folder using Spring ResourceUtils");
+        System.out.println("- Read file from resource folder using Spring ResourceUtils");
         File file = ResourceUtils.getFile("classpath:files/demo-1.txt");
         // Read File Content
         String content = new String(Files.readAllBytes(file.toPath()));
